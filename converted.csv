@@ -1,0 +1,29 @@
+"Cardiovascular Pretest 4"
+
+
+"Question Identifier",Category,"Question Type","Correct Response",Weight,"Response Data"
+
+"User Identifiers",,,,,"Test 4 || test4"
+"Item 1",,MULTICHOICE,2,1,1
+"Item 2",,MULTICHOICE,3,1,2
+"Item 3",,MULTICHOICE,3,1,3
+"Item 4",,MULTICHOICE,4,1,4
+"Item 5",,MULTICHOICE,4,1,1
+"Item 6",,MULTICHOICE,3,1,2
+"Item 7",,MULTICHOICE,1,1,3
+"Item 8",,MULTICHOICE,1,1,1
+"Item 9",,MULTICHOICE,1,1,2
+"Item 10",,MULTICHOICE,2,1,3
+"Item 11",,MULTICHOICE,3,1,1
+"Item 12",,MULTICHOICE,2,1,2
+"Item 13",,MULTICHOICE,3,1,3
+"Item 14",,MULTICHOICE,2,1,1
+"Item 15",,MULTICHOICE,3,1,2
+"Item 16",,MULTICHOICE,2,1,3
+"Item 17",,MULTICHOICE,2,1,1
+"Item 18",,MULTICHOICE,1,1,2
+"Item 19",,MULTICHOICE,2,1,3
+"Item 20",,MULTICHOICE,1,1,1
+"Item 21",,MULTICHOICE,2,1,2
+"Item 22",,MULTICHOICE,2,1,1
+"Item 23",,MULTICHOICE,1,1,2

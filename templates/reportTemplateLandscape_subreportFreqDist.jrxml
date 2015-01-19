@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportTemplatePortrait_subreportFreqDist" language="groovy" pageWidth="205" pageHeight="191" orientation="Landscape" columnWidth="205" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a6b43304-7889-4d76-96a0-bbc7f7a2357a">
+	<property name="ireport.zoom" value="1.7715610000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Zebra" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[($V{REPORT_COUNT}+1)%2 == 1]]></conditionExpression>
+			<style backcolor="#F5F5F5"/>
+		</conditionalStyle>
+	</style>
+	<field name="score" class="java.lang.String"/>
+	<field name="freq" class="java.lang.String"/>
+	<field name="percentile" class="java.lang.String"/>
+	<field name="cumpercent" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band/>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="205" height="18" forecolor="#1860A8" backcolor="#E6E6E6" uuid="63254b49-afc5-4cfc-a883-30f7f4464c8c"/>
+				<textElement textAlignment="Left">
+					<font fontName="Calibri" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="0" width="28" height="18" uuid="f6c4a525-79e3-4917-81f8-478a289884b3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Score]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="0" width="24" height="18" uuid="526519f8-ddc6-4678-b972-b0a1c5063283"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Freq]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="0" width="23" height="18" uuid="a66676c6-97bb-4007-8142-91f95a537348"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[%-ile]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="0" width="29" height="18" uuid="35624a85-c662-4b15-bb54-f7521a3c7ce5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[cum-%]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15">
+			<staticText>
+				<reportElement style="Zebra" mode="Opaque" x="0" y="1" width="191" height="14" forecolor="#1860A8" uuid="47b33dc4-7ae3-4c79-b0ca-89375d655303"/>
+				<textElement textAlignment="Left">
+					<font fontName="Calibri" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="23" y="0" width="39" height="15" uuid="3f3ad0ef-09b6-42bd-957a-1c8b4d4c74d7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{score}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="0" width="39" height="15" uuid="113d96f0-0729-4cca-8673-0140fb8c0527"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{freq}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="0" width="39" height="15" uuid="cec5d5dd-d8b4-410e-8481-ce0575e6ec4b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{percentile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="39" height="15" uuid="c6200455-003f-4bbb-9db3-baaa14526f93"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cumpercent}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band/>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
