@@ -7,6 +7,7 @@ import java.util.*;
 import java.io.*;
 import java.awt.Desktop;
 import java.awt.Dimension;
+import java.nio.file.Files;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
@@ -163,14 +164,14 @@ public class ReportGenerator{
 
     }
 
-    public void generatePdfReport(boolean doGenerateReport, JComboBox itemChartSelector, JFreeChart chart, JPanel chartPanel) throws FileNotFoundException {
+    public void generatePdfReport(boolean doGenerateReport, JComboBox itemChartSelector, JFreeChart chart, JPanel chartPanel) throws FileNotFoundException, IOException {
         HashMap<String,Object> parameters = new HashMap<>();
         String[] fn = filename.split("\\\\");
         fn = fn[fn.length-1].split("\\.");
         String outFilename = fn[0] + "-out.pdf";
         Collection<AllData> data = new ArrayList<>();
         AllData allData = new AllData();
-
+        
         maxPossibleScore = students.get(0).getMaxPossibleScore();
         double minScore = getMinimumScore();
         double maxScore = getMaximumScore();
@@ -478,6 +479,16 @@ public class ReportGenerator{
 
             System.out.println("highestoption: " + highestOption + "template: " + templateFilename);
             
+            //modify the jrxml files to include a valid SUBREPORT_DIR value            
+            String currentDir = new java.io.File( "." ).getCanonicalPath().replace("\\","\\\\");
+            String subreportDir = "		<defaultValueExpression><![CDATA[\"" + currentDir + "\\\\templates\\\\\"]]></defaultValueExpression>";
+            
+            if (highestOption < 8){
+                replaceFileLine("templates/reportTemplatePortrait", ".jrxml", 179, subreportDir);
+            } else {
+                replaceFileLine("templates/reportTemplateLandscape", ".jrxml", 167, subreportDir);
+            }
+            
             try {
                 reportStream = new FileInputStream(templateFilename);
             } catch (FileNotFoundException ex) {
@@ -764,5 +775,34 @@ public class ReportGenerator{
 
     private void validate() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void replaceFileLine(String filename, String ext, int lineNum, String replacementLine) throws IOException {
+        FileInputStream fis = new FileInputStream(filename + ext);
+ 
+	//Construct BufferedReader from InputStreamReader
+	BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+        Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filename+"temp" + ext), "utf-8"));
+        
+	String line = null;
+        int curLine = 1;
+	while ((line = br.readLine()) != null) {
+            if (curLine != lineNum){
+                writer.write(line+System.lineSeparator());
+            } else {
+                writer.write(replacementLine+System.lineSeparator());
+            }
+            
+            curLine++;
+	}
+ 
+	br.close();
+        writer.close();
+        
+        //delete orig file
+        File origFile = new File(filename+ext);
+        File newFile = new File(filename+"temp"+ext);
+        origFile.delete();
+        newFile.renameTo(new File(filename+ext));        
     }
 }

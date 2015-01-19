@@ -176,7 +176,7 @@
 	<parameter name="pmFreqPMp2Per" class="java.lang.String"/>
 	<parameter name="pmFreqPassPer" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\mikuslorence\\Documents\\GitHub\\Item-Analysis-Report-Generator\\templates\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
 	<parameter name="subreportFreqDist" class="net.sf.jasperreports.engine.JasperReport"/>
 	<parameter name="maxPossibleScore" class="java.lang.String"/>
